@@ -1,0 +1,96 @@
+<style>
+body{
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: grey;
+text-align: center;   
+}    
+
+.one{
+    background-color: white;
+    border-radius: 5px;
+    width: 300px;
+    height: 120px;
+    justify-content: center;   
+    position: relative;
+    margin-left: 38%;
+    margin-top: 15%;
+    z-index: 1;
+
+}    
+#btn{
+    background-color: limegreen;
+    padding: 7px;
+    margin: 2px;
+    border-radius: 5px;
+    border: none;
+    
+
+}
+#generated-captcha,#entered-captcha{
+    margin: 10px;
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+}
+#generated-captcha{
+font-weight: bold;
+font-size: 20px;
+border: none;
+}
+
+</style>
+<body onload="generate()">
+<div class="one">
+<input readonly id="generated-captcha" type="text" placeholder=""><br>
+<input id="entered-captcha" type="text" placeholder="Enter the Captcha..."  required>
+<button id="btn"onclick="check()">Verify</button>
+</div>
+</body>
+<script>
+let btn = document.getElementById("btn")
+btn.addEventListener("click",function(){
+    
+})
+ let captcha;
+let alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+console.log(alphabets.length);
+let status = document.getElementById('status');
+
+
+
+ generate = () => {
+// console.log(status)
+let first = alphabets[Math.floor(Math.random() * alphabets.length)];
+let second = Math.floor(Math.random() * 10);
+let third = Math.floor(Math.random() * 10);
+let fourth = alphabets[Math.floor(Math.random() * alphabets.length)];
+let fifth = alphabets[Math.floor(Math.random() * alphabets.length)];
+let sixth = Math.floor(Math.random() * 10);
+captcha = first.toString()+second.toString()+third.toString()+fourth.toString()+fifth.toString()+sixth.toString();
+console.log(captcha);
+document.getElementById('generated-captcha').value = captcha;
+document.getElementById("entered-captcha").value = '';
+}
+
+ check = () => {
+// console.log(status)
+let userValue = document.getElementById("entered-captcha").value;
+console.log(captcha);
+console.log(userValue);
+if(userValue == 0){
+alert("Please enter the Captcha !!")   
+} 
+  
+if(userValue == captcha){
+    alert("Captcha verified Sucessfully!")
+}
+if(userValue != captcha && userValue != 0){
+    alert("Entered captcha is wrong! Try again!!")
+    document.getElementById("entered-captcha")
+}
+ }
+
+ 
+</script>

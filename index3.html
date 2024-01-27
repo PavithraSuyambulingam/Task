@@ -1,0 +1,61 @@
+<style>
+    .popup{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.9);
+        height: 100%;
+        width: 100%;
+        z-index: 100;
+        display: none;
+    }
+    .popup span{
+        position: absolute;
+        top: 0;
+        right: 10px;
+        color: wheat;
+        cursor: pointer;
+    }
+    .popup img{
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        width: 250px;
+        border: 5px solid gray;
+        border-radius: 5px;
+        
+        
+    }
+</style>
+
+<div class="image">
+<img onclick="images()" id="img" src="image/immg 5.jpg">
+<img onclick="images()" id="img" src="image/img 9.jpg">
+<img onclick="images()" id="img" src="image/immg 5.jpg">
+</div>
+<div class="popup">
+    <span>&times;</span>
+    <img src="image/immg 5.jpg">
+</div>
+<script>
+    document.querySelectorAll(".image img").forEach( images => {
+        images.onclick = () =>{
+            document.querySelector(".popup").style.display = 'block';
+            document.querySelector('.popup img').src = images.getAttribute('src');
+
+          }
+    });
+    document.querySelector('.popup span').onclick = () =>{
+        document.querySelector(".popup").style.display = 'none';
+
+    }
+
+</script>
+
+
+
+
+
+
+
+

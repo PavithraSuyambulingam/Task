@@ -1,0 +1,65 @@
+<style>
+#btn{
+    padding: 7px;
+    background-color: limegreen;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+
+
+</style>
+<div class="quiz">
+    <h1 class="heading">Interactive Quiz</h1>
+    
+        <p><b>Q1. Which is our contry?</b></p>
+        <label>
+        <input type="radio"  name="Country" id="answer1"> India </label>
+        <label>
+            <input type="radio" name="Country">Canada
+        </label>
+        <label>
+        <input type="radio" name="Country">America</label>
+        <p><b>Q2. Which is our district?</b></p>
+        <label>
+        <input type="radio"  name="district"> Tirunelveli </label>
+        <label>
+            <input type="radio" name="district">Madurai
+        </label>
+        <label>
+        <input type="radio" name="district" id="answer2">Kanya Kumari</label>
+        <p><b>Q3. Which is capital of our Country?</b></p>
+        <label>
+        <input type="radio"  name="Capital">Nepal</label>
+        <label>
+            <input type="radio" name="Capital" id="answer3">Delhi
+        </label>
+        <label>
+        <input type="radio" name="Capital">Banglore</label>
+    
+    <button id="btn" onclick="result()">Submit</button>
+</div>
+<script>
+    function result(){
+        var score = 0;
+        if(document.getElementById("answer1").checked)
+        {
+            score++;
+        }
+        if(document.getElementById("answer2").checked)
+        {
+            score++;
+        }
+        if(document.getElementById("answer3").checked)
+        {
+            score++;
+        }
+        document.write("<h2>Interactive Quiz</h2>"); 
+        document.write("<br>");
+        document.write("<b>Your Quiz result<b>");
+        document.write("<br>");
+        document.write("Score:"+score);   
+    }
+</script>
